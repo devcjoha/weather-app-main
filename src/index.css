@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* @import "./styles/base.css"; */
+@import "./styles/components.css";
+/* @import "./styles/utilities.css"; */
+
+body {
+  margin: 0;
+  min-height: 619px;
+  font-family: var(--font-family, sans-serif);
+  box-sizing: border-box;
+  overflow-x: hidden;
+  @apply bg-white dark:bg-bg-dark min-h-screen;
+}
+
+@theme {
+  /*light*/
+  --color-bg-light: hsl(0, 0%, 100%);
+  --color-text-light: hsl(230, 17%, 14%);
+  --color-card-light: hsl(227, 47%, 96%);
+  --color-border-card-light: hsl(250, 6%, 84%);
+  --color-card-text-light: hsl(243, 23%, 30%);
+  /*Dark*/
+  --color-bg-dark: hsl(243, 96%, 9%);
+  --color-text-dark: hsl(0, 0%, 100%);
+  --color-card-dark: hsl(240, 26%, 20%);
+  --color-border-card-dark: hsl(243, 23%, 30%);
+
+  /*Colors */
+  --color-Neutral-900: hsl(243, 96%, 9%);
+  --color-Neutral-800: hsl(243, 27%, 20%);
+  --color-Neutral-700: hsl(243, 23%, 24%);
+  --color-Neutral-600: hsl(243, 23%, 30%);
+  --color-Neutral-300: hsl(240, 6%, 70%);
+  --color-Neutral-200: hsl(250, 6%, 84%);
+  --color-Neutral-0: hsl(0, 0%, 100%);
+
+  --color-Blue-500: hsl(233, 67%, 56%);
+  --color-Blue-700: hsl(248, 70%, 36%);
+
+  --color-Orange-500: hsl(28, 100%, 52%);
+
+  --linear-gradient-blue: linear-gradient(
+    180deg,
+    hsl(233, 67%, 56%) 0%,
+    hsl(248, 70%, 36%) 0%
+  );
+
+  --container-sm: 375px;
+  --container-lg: 1440px;
+
+  /*Typography*/
+  --text-size-12: 0.75rem;
+  --text-size-14: 0.875rem;
+  --text-size-16: 1rem;
+  --text-size-18: 1.125rem;
+  --text-size-20: 1.25rem;
+  --text-size-24: 1.5rem;
+  --text-size-32: 2rem;
+  --text-size-40: 2.5rem;
+  --text-size-48: 3rem;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-family: "DM Sans", sans-serif;
+  --font-family-secondary: "Bricolage Grotesque", sans-serif;
+}

@@ -1,0 +1,38 @@
+[{
+    "currentData": {
+        "latitude": 52.52,
+        "longitude": 13.419998,
+        "generationtime_ms": 0.09524822235107422,
+        "utc_offset_seconds": 3600,
+        "timezone": "Europe/Berlin",
+        "timezone_abbreviation": "GMT+1",
+        "elevation": 38,
+        "current_units": {
+            "time": "iso8601",
+            "interval": "seconds",
+            "temperature_2m": "°C",
+            "relative_humidity_2m": "%",
+            "apparent_temperature": "°C",
+            "is_day": "",
+            "precipitation": "mm",
+            "wind_speed_10m": "km/h"
+        },
+        "current": {
+            "time": "2025-11-11T23:15",
+            "interval": 900,
+            "temperature_2m": 8.1,
+            "relative_humidity_2m": 95,
+            "apparent_temperature": 6.8,
+            "is_day": 0,
+            "precipitation": 0,
+            "wind_speed_10m": 4
+        }
+    },
+    "loading": false,
+    "error": null
+},
+{
+    "lat": 10.4927046,
+    "lon": -66.8201208,
+    "error": null
+}]
