@@ -1,7 +1,8 @@
 import useCurrentIcon from "../../../hooks/UseCurrentIcon";
 const DailyCard = ({ daily }) => {
+console.log("DAYLY", daily);
 
-  if (!daily || !daily.daily || !daily.daily_units) return null;
+  if (!daily || !daily.daily) return null;
 
   const {
     temperature_2m_max,
@@ -18,10 +19,10 @@ const DailyCard = ({ daily }) => {
   }));
 
   // const { temperature_2m_max: temMaxUnit, temperature_2m_min: tempMinUnit } =
-    daily.daily_units;
+    // daily.daily_units;
 
   const cardDaily =
-    "box-daily-card w-26 h-45 pt-5 mb-4 text-[1.2rem] lg:p-[.8rem] dark:bg-card-dark dark:text-white dark:border-transparent";
+    "box-daily-card w-26 h-45 pt-5 mb-4 text-[1.2rem] lg:p-[.8rem] dark:bg-card-dark dark:text-text-dark dark:border-transparent";
 
   return (
     <>
@@ -38,8 +39,8 @@ const DailyCard = ({ daily }) => {
               alt="icon"
               className="icon-daily w-15 h-12"
             />
-            <p className="daily-temperature">
-              {Math.round(day.max)}° /  {Math.round(day.min)}°
+            <p className="daily-temperature text-size-16">
+            {Math.round(day.min)}°   /   {Math.round(day.max)}°
             </p>
           </div>
         ))}

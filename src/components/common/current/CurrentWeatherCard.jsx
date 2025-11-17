@@ -1,24 +1,20 @@
 import useCurrentIcon from "../../../hooks/UseCurrentIcon";
 const CurrentWeatherCard = ({ current, cityInfo }) => {
-  if (!current || !current.current || (!current.current_units && !cityData))
+  if (!current || !current.current || (!current.current_units && !cityInfo))
     return null;
 
   const { temperature_2m, is_day, weather_code } = current.current;
   const iconName = useCurrentIcon({ weatherCode: weather_code });
   const { temperature_2m: tempUnit } = current.current_units;
 
-  // console.log("time", time);
-  // console.log("isDay", is_day);
-  // console.log("CARD", is_day);
-  // console.log("CARD-current", current);
   return (
     <>
       <section
-        className={`current-weather-card-container relative flex  border-transparent rounded-3xl items-center justify-center w-full lg:h-70 h-70 text-white
+        className={`current-weather-card-container relative flex  border-transparent rounded-3xl items-center justify-center w-full lg:h-70 h-70 text-text-dark
          ${
            is_day === 0
              ? "bg-[url(/src/assets/images/bg-today-small.svg)] lg:bg-[url(/src/assets/images/bg-today-large.svg)] bg-cover"
-             : "bg-linear-to-br from-sky-500 via-cyan-500 to-Blue-700"
+             : "bg-linear-to-br from-sky-400 to-Blue-700"
          } `}
       >
         <div className="current-card absolute inset-0 flex flex-row flex-wrap items-center lg:justify-between justify-center p-5">

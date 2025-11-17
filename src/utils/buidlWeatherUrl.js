@@ -1,4 +1,4 @@
-export default function buildWeatherUrl({ lat, lon, units = "metric", type = "current" }) {
+export default function buildWeatherUrl({ lat, lon, units, type = "current" }) {
   const baseUrl = "https://api.open-meteo.com/v1/forecast";
   const temperatureUnit = units === "imperial" ? "fahrenheit" : "celsius";
   const windSpeedUnit = units === "imperial" ? "mph" : "kmh";

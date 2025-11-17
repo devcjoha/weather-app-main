@@ -41,18 +41,29 @@
     display: flex;
     flex-direction: column;
   }
-  .box-daily-card{
+  .box-daily-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 10rem;
+    height: 8rem;
     border: 1px solid var(--color-border-card-light);
     color: var(--color-card-text-light);
-    height: 8rem;
     padding: 0.5rem;
     border-radius: 18px;
     background-color: var(--color-card-light);
+    opacity: 0.9;
+    font-size: 0.9rem;
+  }
+  .box-hourly-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;;
+    color: var(--color-card-text-light);
+    border-radius: 12px;
+    background-color: var(--color-hourly-bg-card-light);
     opacity: 0.9;
     font-size: 0.9rem;
   }

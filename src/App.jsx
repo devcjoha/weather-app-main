@@ -7,8 +7,6 @@ function App() {
     const saveTheme = localStorage.getItem("theme");
     return saveTheme === "dark";
   });
-  // console.log("APP", current);
-  // console.log("LOCATION USER", location);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -28,7 +26,7 @@ function App() {
   return (
     <>
       <UnitsProvider>
-        <main className="app max-w-screen mx-auto min-h-screen dark:bg-bg-dark dark:bg-white-bg dark:text-white z-0 @container">
+        <main className="app max-w-screen mx-auto min-h-screen dark:bg-bg-dark dark:bg-white-bg dark:text-text-dark z-0 @container">
           <Home
             darkMode={darkMode}
             setDarkMode={setDarkMode}

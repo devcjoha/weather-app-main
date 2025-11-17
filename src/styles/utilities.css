@@ -1,0 +1,21 @@
+@layer utilities {
+  .scrollbar::-webkit-scrollbar {
+    width: .3rem;
+    height: 5rem;
+  }
+  /* Light mode */
+  .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-Neutral-200);
+    border-radius: 100vh;
+  }
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-Neutral-300);
+  }
+    /* Dark mode */
+  .dark .scrollbar::-webkit-scrollbar-thumb {
+    background: var(--color-Neutral-500);
+  }
+  .dark .scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--color-Neutral-300);
+  }
+}

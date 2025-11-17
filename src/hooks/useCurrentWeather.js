@@ -2,9 +2,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useUnits } from "../context/UnitsContext.jsx";
-import  buildWeatherUrl  from "./buidlWeatherUrl";
+import  buildWeatherUrl  from "../utils/buidlWeatherUrl.js";
 import useUserLocation  from "./useUserLocation.js";
-import getDataCity from "./getDataCity.js";
+import getDataCity from "../utils/getDataCity.js";
 
 
 export default function useCurrentWeather() {
@@ -38,5 +38,5 @@ export default function useCurrentWeather() {
     fetchWeather();
   }, [lat, lon, units]);
 
-  return { data, city, loading, error, locationError };
+  return { data, city, units, loading, error, locationError };
 }

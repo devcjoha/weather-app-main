@@ -1,5 +1,5 @@
 // src/context/UnitsContext.jsx
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const UnitsContext = createContext();
 
@@ -10,6 +10,7 @@ export function UnitsProvider({ children }) {
     setUnits(prev => (prev === 'metric' ? 'imperial' : 'metric'));
   };
 
+
   return (
     <UnitsContext.Provider value={{ units, toggleUnits }}>
       {children}
@@ -19,4 +20,4 @@ export function UnitsProvider({ children }) {
 
 export function useUnits() {
   return useContext(UnitsContext);
-}
+};

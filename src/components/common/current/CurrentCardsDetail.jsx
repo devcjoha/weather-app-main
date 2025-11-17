@@ -16,7 +16,7 @@ const CardDetailCurrent = ({ current }) => {
   } = current.current_units;
 
   const boxCurrentDetail =
-    "box-current-detail lg:w-46 lg:h-30 w-40 h-30 lg:pl-5 pl-5 pt-5 mb-4 text-[1.2rem] lg:p-[.8rem] dark:bg-card-dark dark:text-white dark:border-transparent";
+    "box-current-detail lg:w-46 lg:h-30 w-40 h-30 lg:pl-5 pl-5 pt-5 mb-4 text-[1.2rem] lg:p-[.8rem] dark:bg-card-dark dark:text-text-dark dark:border-transparent";
 
     return (
     <>
@@ -24,7 +24,7 @@ const CardDetailCurrent = ({ current }) => {
         <div className={boxCurrentDetail}>
           <h5>Feels Like</h5>
           <p className="text-[1.7rem]">
-            {apparent_temperature} {appUnit}
+            {Math.round(apparent_temperature)} {appUnit}
           </p>
         </div>
         <div className={boxCurrentDetail}>

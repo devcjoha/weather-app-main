@@ -3,7 +3,7 @@
 
 /* @import "./styles/base.css"; */
 @import "./styles/components.css";
-/* @import "./styles/utilities.css"; */
+@import "./styles/utilities.css";
 
 body {
   margin: 0;
@@ -21,17 +21,19 @@ body {
   --color-card-light: hsl(227, 47%, 96%);
   --color-border-card-light: hsl(250, 6%, 84%);
   --color-card-text-light: hsl(243, 23%, 30%);
+  --color-hourly-bg-card-light: hsl(0, 0%, 100%);
   /*Dark*/
   --color-bg-dark: hsl(243, 96%, 9%);
-  --color-text-dark: hsl(0, 0%, 100%);
+  --color-text-dark: hsl(240, 7%, 90%);
   --color-card-dark: hsl(240, 26%, 20%);
-  --color-border-card-dark: hsl(243, 23%, 30%);
-
+  --color-border-card-dark: hsl(240, 23%, 38%);
+  --color-hourly-bg-card-dark: hsl(240, 22%, 24%);
   /*Colors */
   --color-Neutral-900: hsl(243, 96%, 9%);
   --color-Neutral-800: hsl(243, 27%, 20%);
   --color-Neutral-700: hsl(243, 23%, 24%);
   --color-Neutral-600: hsl(243, 23%, 30%);
+  --color-Neutral-500: hsl(242, 13%, 41%);
   --color-Neutral-300: hsl(240, 6%, 70%);
   --color-Neutral-200: hsl(250, 6%, 84%);
   --color-Neutral-0: hsl(0, 0%, 100%);
