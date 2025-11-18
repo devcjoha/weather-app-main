@@ -35,8 +35,9 @@ const Home = ({ handleToggle, darkMode, setDarkMode }) => {
           setDarkMode={setDarkMode}
           current={current}
           unitsContext={units}
-        ></Header>
+        >
 
+          </Header>
         <div className="title-home-container flex w-full lg:h-20 h-60 font-family-secondary justify-center items-center leading-16">
           <h1 className="title-home lg:text-[4rem] text-Neutral-500 dark:text-text-dark text-[3.5rem] text-center font-bold ">
             How's the sky looking today?
@@ -48,6 +49,16 @@ const Home = ({ handleToggle, darkMode, setDarkMode }) => {
             currentSearch={currentSearch}
           />
         </div>
+          <div className="feedback-container w-full h-2 flex justify-center absolute z-30 items-center lg:top-20 top-80">
+          {current.loading && (
+            <div className="animate-spin-3 rounded-3xl h-9 w-9 border-4 border-dotted border-Neutral-300"></div>
+          )}
+          {current.locationError &&  
+          <div className="text-center text-red-500 lg:text-[.8rem] text-[.6rem]  font-bold">
+              <p>{current.locationError}</p>
+            </div>}
+        </div>
+        
         {/* SEARCH CONDITIONS */}
         {currentSearch ? (
           <div className="total-weather-container flex flex-row flex-wrap h-184 w-full lg:justify-between lg:p-5">

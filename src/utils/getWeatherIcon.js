@@ -34,6 +34,8 @@ const weatherIconMap = {
   80: { day: iconRain, night: iconNightRain },         // Showers
   81: { day: iconRain, night: iconNightRain },
   82: { day: iconRain, night: iconNightRain },
+  85: { day: iconSnow, night: iconSnow },
+  86: { day: iconSnow, night: iconSnow },
   95: { day: iconCloudThunder, night: iconCloudThunder }, // Thunderstorm
   96: { day: iconCloudThunder, night: iconCloudThunder },
   99: { day: iconCloudThunder, night: iconCloudThunder },

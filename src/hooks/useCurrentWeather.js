@@ -26,10 +26,6 @@ export default function useCurrentWeather() {
         setData(response.data);
         const geoInfo = await getDataCity(lat, lon);
         setCity(geoInfo);
-        useCurrentIcon({
-          weatherCode: response.data.current_weather.weathercode,
-          isDay: response.data.current_weather.is_day,
-        });
       } catch (err) {
         setError(err.message || "Couldn’t connect to the server!");
       } finally {
@@ -41,4 +37,4 @@ export default function useCurrentWeather() {
   }, [lat, lon, units]);
 
   return { data, city, units, loading, error, locationError };
-}
+};
