@@ -56,7 +56,7 @@ Users can:
 ## 🚀 Live Deploys
 
 - Solution URL: [code](https://github.com/devcjoha/weather-app-main)
-- Live Site URL: [Deploy-Github-Pages]()
+- Live Site URL: [Deploy-Github-Pages](https://devcjoha.github.io/weather-app-main/)
 
 ## My process
 
