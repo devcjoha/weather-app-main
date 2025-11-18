@@ -26,7 +26,7 @@ const SearchBar = ({ searchWeather }) => {
           />
           <input
             name="search"
-            type="search"
+            type="text"
             placeholder="Search for a place..."
             autoComplete="on"
             value={search}

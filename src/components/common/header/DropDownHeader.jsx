@@ -5,13 +5,11 @@ import DropdownItem from "./DropDownItem";
 import iconUnits from "../../../assets/icons/icon-units.svg";
 import useOutsideClick from "../../../hooks/useOutsideClick";
 
-const DropDownHeader = ({ darkMode, setDarkMode, handleToggle, current, currentSearch }) => {
+const DropDownHeader = ({ darkMode, setDarkMode, handleToggle, current }) => {
   const { units, toggleUnits } = useUnits();
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
-  const currentUnits = currentSearch ? currentSearch : current.data;
-
-console.log("DROP", units);
+  const currentUnits = current.data;
 
   useOutsideClick(dropdownRef, () => setOpen(false), open);
 

@@ -1,8 +1,7 @@
 import HourlyCard from "../common/hourly/HourlyCard";
 import { useState } from "react";
-// import iconArrow from "../../assets/icons/icon-dropdown.svg";
 import SelectMenu from "../common/hourly/SelectMenu";
-const HourlyForecast = ({ hourly }) => {
+const HourlyForecast = ({ hourly, isDay }) => {
   
   if (!hourly || !hourly.hourly) return null;
   const [selectedDay, setSelectedDay] = useState("Saturday");
@@ -36,7 +35,7 @@ const HourlyForecast = ({ hourly }) => {
           <SelectMenu hourly={hourly} selectedDay={selectedDay} setSelectedDay={setSelectedDay} time={time}/>
         </div>
         <div className="hourly-cards-container flex flex-col max-h-150 overflow-y-auto scrollbar p-4 pt-0">
-          <HourlyCard hourly={hourly} selectedDay={selectedDay}  byDay={byDay} />
+          <HourlyCard hourly={hourly} selectedDay={selectedDay}  byDay={byDay} isDay={isDay}/>
         </div>
       </section>
     </>

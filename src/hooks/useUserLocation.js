@@ -11,7 +11,7 @@ function useUserLocation() {
         setLocation({ lat: latitude, lon: longitude });
       },
       (err) => {
-        setError(err.message);
+        setError(err.message || "Couldn’t connect to the server!");
       }
     );
   }, []);

@@ -49,5 +49,4 @@ const CardDetailCurrent = ({ current }) => {
     </>
   );
 };
-
 export default CardDetailCurrent;

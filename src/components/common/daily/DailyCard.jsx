@@ -1,6 +1,5 @@
 import useCurrentIcon from "../../../hooks/UseCurrentIcon";
-const DailyCard = ({ daily }) => {
-console.log("DAYLY", daily);
+const DailyCard = ({ daily, isDay}) => {
 
   if (!daily || !daily.daily) return null;
 
@@ -18,9 +17,6 @@ console.log("DAYLY", daily);
     code: weatherCode[index],
   }));
 
-  // const { temperature_2m_max: temMaxUnit, temperature_2m_min: tempMinUnit } =
-    // daily.daily_units;
-
   const cardDaily =
     "box-daily-card w-26 h-45 pt-5 mb-4 text-[1.2rem] lg:p-[.8rem] dark:bg-card-dark dark:text-text-dark dark:border-transparent";
 
@@ -35,7 +31,7 @@ console.log("DAYLY", daily);
               })}
             </p>
             <img
-              src={useCurrentIcon({ weatherCode: day.code })}
+              src={useCurrentIcon({ weatherCode: day.code, isDay })}
               alt="icon"
               className="icon-daily w-15 h-12"
             />
@@ -48,5 +44,4 @@ console.log("DAYLY", daily);
     </>
   );
 };
-
 export default DailyCard;

@@ -5,15 +5,12 @@ import  buildWeatherUrl  from "../utils/buidlWeatherUrl.js";
 import useUserLocation  from "./useUserLocation.js";
 import getDataCity from "../utils/getDataCity.js";
 
-
 export default function useDailyWeather() {
   const { units } = useUnits();
   const [dataDaily, setDataDaily] = useState(null);
-  // const [city, setCity] = useState();
   const { lat, lon, error: locationError } = useUserLocation();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
 
   useEffect(() => {
     if (!lat || !lon) return;
@@ -28,7 +25,7 @@ export default function useDailyWeather() {
         const geoInfo = await getDataCity(lat, lon);
         setCity(geoInfo)
       } catch (err) {
-        setError(err.message || "Error al obtener datos del clima");
+        setError(err.message || "Couldn’t connect to the server!");
       } finally {
         setLoading(false);
       }
@@ -38,4 +35,4 @@ export default function useDailyWeather() {
   }, [lat, lon, units]);
 
   return { dataDaily, loading, error, locationError };
-}
+};

@@ -1,7 +1,7 @@
-// src/hooks/useWeatherSearch.js
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import getDataCity from "../utils/getDataCity";
+import buildWeatherUrl from "../utils/buidlWeatherUrl";
 import { useUnits } from "../context/UnitsContext";
 
 export default function useWeatherSearch() {
@@ -9,54 +9,37 @@ export default function useWeatherSearch() {
   const [city, setCity] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const { units } = useUnits(); // "metric" o "imperial"
+  const { units } = useUnits();
+  const [lastSearchedCity, setLastSearchedCity] = useState(null);
 
-  // 🔑 función para construir la URL con params
-  const buildWeatherUrl = (lat, lon, units) => {
-    const isMetric = units === "metric";
-    return {
-      url: "https://api.open-meteo.com/v1/forecast",
-      params: {
-        latitude: lat,
-        longitude: lon,
-        current:
-          "temperature_2m,apparent_temperature,relative_humidity_2m,precipitation,rain,snowfall,showers,cloud_cover,weather_code,wind_speed_10m,is_day",
-        daily:
-          "weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum",
-        hourly:
-          "temperature_2m,precipitation,wind_speed_10m,weather_code",
-        timezone: "auto",
-        temperature_unit: isMetric ? "celsius" : "fahrenheit",
-        wind_speed_unit: isMetric ? "kmh" : "mph",
-        precipitation_unit: isMetric ? "mm" : "inch",
-      },
-    };
-  };
-
-  const searchWeather = async (cityName) => {
+  const fetchWeather = async (cityName, currentUnits) => {
     setLoading(true);
     setError(null);
 
     try {
-      // 1. Buscar coordenadas
-      const { data } = await axios.get(
-        `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
-      );
-      if (!data.results || data.results.length === 0) {
-        throw new Error("City not found");
+      let latitude, longitude, geoInfo;
+
+      if (!lastSearchedCity || cityName !== lastSearchedCity) {
+        const { data } = await axios.get(
+          `https://geocoding-api.open-meteo.com/v1/search?name=${cityName}`
+        );
+        if (!data.results || data.results.length === 0) {
+          throw new Error("No search result found!");
+        }
+        latitude = data.results[0].latitude;
+        longitude = data.results[0].longitude;
+
+        geoInfo = await getDataCity(latitude, longitude);
+        setCity(geoInfo);
+      } else {
+        latitude = currentSearch.cityInfo.latitude;
+        longitude = currentSearch.cityInfo.longitude;
+        geoInfo = currentSearch.cityInfo;
       }
 
-      const { latitude, longitude } = data.results[0];
+      const url = buildWeatherUrl({ lat: latitude, lon: longitude, units: currentUnits });
+      const { data: weatherData } = await axios.get(url);
 
-      // 2. Info ciudad
-      const geoInfo = await getDataCity(latitude, longitude);
-      setCity(geoInfo);
-
-      // 3. Construir URL y pedir clima
-      const { url, params } = buildWeatherUrl(latitude, longitude, units);
-      const { data: weatherData } = await axios.get(url, { params });
-
-      // 4. Normalizar
       setCurrentSearch({
         current: weatherData.current,
         current_units: weatherData.current_units,
@@ -66,12 +49,24 @@ export default function useWeatherSearch() {
         hourly_units: weatherData.hourly_units,
         cityInfo: geoInfo,
       });
+
+      setLastSearchedCity(cityName);
     } catch (err) {
-      setError(err.message || "Error al obtener datos del clima");
+      setError(err.message || "Couldn’t connect to the server!");
     } finally {
       setLoading(false);
     }
   };
+
+  const searchWeather = (cityName) => {
+    fetchWeather(cityName, units);
+  };
+
+  useEffect(() => {
+    if (lastSearchedCity) {
+      fetchWeather(lastSearchedCity, units);
+    }
+  }, [units]);
 
   return { currentSearch, city, loading, error, searchWeather };
 };

@@ -1,11 +1,10 @@
-// src/hooks/useCurrentWeather.js
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useUnits } from "../context/UnitsContext.jsx";
-import  buildWeatherUrl  from "../utils/buidlWeatherUrl.js";
-import useUserLocation  from "./useUserLocation.js";
+import buildWeatherUrl from "../utils/buidlWeatherUrl.js";
+import useUserLocation from "./useUserLocation.js";
 import getDataCity from "../utils/getDataCity.js";
-
+import useCurrentIcon from "./UseCurrentIcon.js";
 
 export default function useCurrentWeather() {
   const { units } = useUnits();
@@ -15,21 +14,24 @@ export default function useCurrentWeather() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
     if (!lat || !lon) return;
     const fetchWeather = async () => {
       setLoading(true);
       setError(null);
-      
+
       try {
         const url = buildWeatherUrl({ lat, lon, units, type: "current" });
         const response = await axios.get(url);
         setData(response.data);
         const geoInfo = await getDataCity(lat, lon);
-        setCity(geoInfo)
+        setCity(geoInfo);
+        useCurrentIcon({
+          weatherCode: response.data.current_weather.weathercode,
+          isDay: response.data.current_weather.is_day,
+        });
       } catch (err) {
-        setError(err.message || "Error al obtener datos del clima");
+        setError(err.message || "Couldn’t connect to the server!");
       } finally {
         setLoading(false);
       }

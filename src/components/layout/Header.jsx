@@ -1,6 +1,6 @@
-// import ModeToggle from "../common/ModeToggle";
 import Logo from "../../assets/images/logo.svg";
 import DropDownHeader from "../common/header/DropDownHeader";
+import logoLight from "../../assets/images/logo-light.svg";
 
 function Header({ darkMode, handleToggle, setDarkMode, units, current, currentSearch }) {
   
@@ -8,7 +8,7 @@ function Header({ darkMode, handleToggle, setDarkMode, units, current, currentSe
     <>
       <section className="header-container w-full lg:h-25 h-20 p-5">
         <div className="header-left">
-          <img src={Logo} alt="logo-weather" className="w-35 lg:w-40" />
+          <img src={darkMode ? Logo : logoLight } alt="logo-weather" className="w-35 lg:w-40" />
         </div>
         <div>
           <DropDownHeader

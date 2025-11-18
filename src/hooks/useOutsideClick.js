@@ -15,4 +15,4 @@ export default function useOutsideClick(ref, callback, active = true) {
       document.removeEventListener("pointerdown", handlePointerDown, true);
     };
   }, [ref, callback, active]);
-}
+};

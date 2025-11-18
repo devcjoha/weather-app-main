@@ -4,12 +4,11 @@ import { createContext, useContext, useState, useEffect } from 'react';
 const UnitsContext = createContext();
 
 export function UnitsProvider({ children }) {
-  const [units, setUnits] = useState('metric'); // 'imperial' o 'metric'
+  const [units, setUnits] = useState('metric');
 
   const toggleUnits = () => {
     setUnits(prev => (prev === 'metric' ? 'imperial' : 'metric'));
   };
-
 
   return (
     <UnitsContext.Provider value={{ units, toggleUnits }}>

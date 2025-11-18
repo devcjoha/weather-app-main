@@ -20,4 +20,4 @@ export default async function getDataCity(lat, lon) {
     console.error("Error al obtener datos de ciudad:", err.message);
     return null;
   }
-}
+};
