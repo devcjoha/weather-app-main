@@ -6,7 +6,7 @@ function Header({ darkMode, handleToggle, setDarkMode, units, current, currentSe
   
   return (
     <>
-      <section className="header-container w-full lg:h-25 h-20 p-5">
+      <section className="header-container w-full lg:h-25 h-20 lg:p-5 ">
         <div className="header-left">
           <img src={darkMode ? Logo : logoLight } alt="logo-weather" className="w-35 lg:w-40" />
         </div>
