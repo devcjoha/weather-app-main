@@ -37,11 +37,11 @@ Users can:
 ### Screenshot
 
 <p align="center" >
-  <img src="./public/weather-solution-desktop-light.jpeg" width="600" alt="desktopLight" />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="./public//weather-solution-desktop-dark.jpeg" width="600" alt="desktopdark" />
+  <img src="./public/weather-solution-desktop-light.jpeg" width="400" alt="desktopLight" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="./public/weather-solution-mobile-light.jpeg" width="100" alt="mobilelight" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="./public//weather-solution-desktop-dark.jpeg" width="400" alt="desktopdark" />
   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="./public/weather-solution-mobile-dark.jpeg" width="100" alt="mobiledark" />
 </p>
